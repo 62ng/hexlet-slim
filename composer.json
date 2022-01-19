@@ -1,0 +1,18 @@
+{
+    "name": "an/hexlet-slim",
+    "autoload": {
+        "psr-4": {
+            "An\\HexletSlim\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrey Frolov",
+            "email": "internet.buro@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.9",
+        "slim/psr7": "^1.5"
+    }
+}
