@@ -1,26 +1,17 @@
 <?php
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Factory\AppFactory;
 
+// Подключение автозагрузки через composer
 require __DIR__ . '/../vendor/autoload.php';
 
-// Instantiate App
-$app = AppFactory::create();
+use Slim\Factory\AppFactory;
 
-// Add error middleware
+$app = AppFactory::create();
 $app->addErrorMiddleware(true, true, true);
 
-// Add routes
-$app->get('/', function (Request $request, Response $response) {
-    $response->getBody()->write('<a href="/hello/world">Try /hello/world</a>');
+$app->get('/', function ($request, $response) {
+    $response->getBody()->write('Welcome to Slim!');
     return $response;
+    // Благодаря пакету slim/http этот же код можно записать короче
+    // return $response->write('Welcome to Slim!');
 });
-
-$app->get('/hello/{name}', function (Request $request, Response $response, $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
-    return $response;
-});
-
 $app->run();
