@@ -1,0 +1,6 @@
+<h1>Hello, <?= htmlspecialchars($user['name']) ?></h1>
+<p>id = <?= htmlspecialchars($user['id']) ?></p>
+<p>nickname = <?= htmlspecialchars($user['name']) ?></p>
+<p>email = <?= htmlspecialchars($user['email']) ?></p>
+<a href="/users/<?= htmlspecialchars($user['id']) ?>/edit">Edit</a>
+<div><a href="/users">All users</a></div>

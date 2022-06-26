@@ -1,0 +1,23 @@
+<?php foreach ($flash['success'] as $successLine): ?>
+    <div style="color:green"><?= $successLine ?></div>
+<?php endforeach ?>
+
+<?php foreach ($flash['errors'] as $errorLine): ?>
+    <div style="color:red"><?= $errorLine ?></div>
+<?php endforeach ?>
+
+<form action="/users" method="post">
+  <div>
+    <label>
+        Имя
+      <input type="text" name="user[name]" value="<?= htmlspecialchars($user['name']) ?>" required>
+    </label>
+  </div>
+  <div>
+    <label>
+        Email
+      <input type="email" name="user[email]" value="<?= htmlspecialchars($user['email']) ?>" required>
+    </label>
+  </div>
+  <input type="submit" value="Add user">
+</form>

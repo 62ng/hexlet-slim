@@ -1,0 +1,30 @@
+<?php if (!isset($_SESSION['email'])): ?>
+    <form action="/login" method="post">
+        <input type="search" name="email" value="" />
+        <input type="submit" value="Login" />
+    </form>
+    <?php die; ?>
+<?php endif ?>
+
+<form action="/logout" method="post">
+  <input type="submit" value="Logout" />
+</form>
+
+<?php foreach ($flash['success'] as $successLine): ?>
+    <div style="color:green"><?= $successLine ?></div>
+<?php endforeach ?>
+
+<?php foreach ($flash['errors'] as $errorLine): ?>
+    <div style="color:red"><?= $errorLine ?></div>
+<?php endforeach ?>
+
+<form action="/users" method="get">
+  <input type="search" name="term" value="<?= htmlspecialchars($term) ?>" />
+  <input type="submit" value="Search" />
+</form>
+
+<?php foreach ($users as $userData): ?>
+    <div><?= $userData['id'] ?> - <a href="/users/<?= $userData['id'] ?>"><?= $userData['name'] ?></a></div>
+<?php endforeach ?>
+
+<div><a href="/users/new">Add user</a></div>

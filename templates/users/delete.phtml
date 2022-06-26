@@ -1,0 +1,5 @@
+<div>Удаление <?= htmlspecialchars($user['name']) ?> (<?= htmlspecialchars($user['id']) ?>)</div>
+<form action="/users/<?= htmlspecialchars($user['id']) ?>" method="post">
+  <input type="hidden" name="_METHOD" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
